@@ -1,5 +1,6 @@
 import DisplayConf from "./DisplayConf";
 import styles from "./Team.module.scss";
+import { useNavigate } from "react-router-dom";
 
 export default function Team({
   person,
@@ -11,32 +12,36 @@ export default function Team({
   handleTogglePages,
   toggleLiked,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div
-      className="d-flex flex-column jc-start mt-30"
-      style={{ width: "100%" }}
-    >
+      className='d-flex flex-column jc-start mt-30'
+      style={{ width: "100%" }}>
       <div className={`d-flex ${styles.main} jc-between align-items-center`}>
         <h2 className={`${styles.presentation}`}>
           {licensed && <span>Welcome {person.name} !</span>}
         </h2>
         <div className={`${styles.burgerMenu}`}>
           <button
-            onClick={login}
-            className="btn btn-reverse-primary fz-20 mr-15"
-          >
+            onClick={() => {
+              if (!licensed) {
+                navigate("/login"); // Redirige vers la page de connexion
+              } else {
+                login();
+              }
+            }}
+            className='btn btn-reverse-primary fz-20 mr-15'>
             {licensed ? "Logout" : "Login"}
           </button>
           <button
             onClick={() => handleTogglePages("users")}
-            className="btn btn-primary fz-20 mr-15"
-          >
+            className='btn btn-primary fz-20 mr-15'>
             Users
           </button>
           <button
             onClick={() => handleTogglePages("favorites")}
-            className="btn btn-reverse-primary fz-20"
-          >
+            className='btn btn-reverse-primary fz-20'>
             Favorites
           </button>
         </div>
@@ -66,7 +71,7 @@ export default function Team({
           />
         ) : null
       ) : (
-        <p className="text-error d-flex justify-content-center mt-30 fz-20">
+        <p className='text-error d-flex justify-content-center mt-30 fz-20'>
           Vous devez être connecté
         </p>
       )}

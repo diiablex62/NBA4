@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContextInstance"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { login } = useContext(AppContext); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,7 +15,8 @@ const Login = () => {
       return;
     }
     console.log("Email:", email, "Password:", password);
-    alert("Connexion réussie !");
+    login(); 
+    navigate("/"); 
   };
 
   return (
