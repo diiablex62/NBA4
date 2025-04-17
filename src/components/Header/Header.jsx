@@ -15,8 +15,8 @@ export default function Header({
   return (
     <div
       className={`d-flex flex-row jc-between align-items-center ${styles.header}`}>
-      <NavLink to='/'>
-        <h1 className={`mt-30 ${styles.mainTitle}`}>NBA</h1>
+      <NavLink to='/' className={`mt-30 ${styles.mainTitle}`}>
+        <h1>NBA</h1>
       </NavLink>
       <div
         className={`d-flex justify-content-center align-items-center my-30 ${styles.searchBar}`}>
