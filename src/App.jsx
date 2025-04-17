@@ -11,7 +11,7 @@ function App() {
   const {
     teams,
     isLoading,
-    licensed,
+    licensed, // Utilisation de licensed
     view,
     filter,
     showPage,
@@ -45,7 +45,7 @@ function App() {
           <Header
             changeView={changeView}
             handleInput={handleInput}
-            licensed={licensed}
+            licensed={licensed} // Passer licensed au Header
             login={login}
             handleTogglePages={handleTogglePages}
           />
@@ -55,7 +55,7 @@ function App() {
             <Team
               person={person}
               teams={teams}
-              licensed={licensed}
+              licensed={licensed} // Passer licensed au Team
               login={login}
               view={view}
               filter={filter}
