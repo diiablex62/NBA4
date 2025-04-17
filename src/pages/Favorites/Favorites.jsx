@@ -8,13 +8,7 @@ export default function Favorites({ showUsers, teams, toggleLiked, licensed }) {
     <div
       className={`d-flex flex-column justify-content-center align-items-center ${styles.main}`}>
       <h3
-        onClick={() => {
-          if (!licensed) {
-            navigate("/login"); // Redirige vers la page de connexion
-          } else {
-            showUsers("teams");
-          }
-        }}
+        onClick={() => navigate("/")}
         className={`mb-20 ${styles.link}`}>
         Back to Homepage
       </h3>
