@@ -14,18 +14,20 @@ export default function Header({
   const [showMenu, setShowMenu] = useState(false);
   return (
     <div
-      className={`d-flex flex-row jc-between align-items-center ${styles.header}`}>
-      <NavLink to='/' className={`mt-30 ${styles.mainTitle}`}>
+      className={`d-flex flex-row jc-between align-items-center ${styles.header}`}
+    >
+      <NavLink to="/" className={`mt-30 ${styles.mainTitle}`}>
         <h1>NBA</h1>
       </NavLink>
       <div
-        className={`d-flex justify-content-center align-items-center my-30 ${styles.searchBar}`}>
-        <i className='fa-solid fa-magnifying-glass mr-15'></i>
+        className={`d-flex justify-content-center align-items-center my-30 ${styles.searchBar}`}
+      >
+        <i className="fa-solid fa-magnifying-glass mr-15"></i>
         <input
           onInput={handleInput}
-          className='flex-fill'
-          type='text'
-          placeholder='Search'
+          className="flex-fill"
+          type="text"
+          placeholder="Search"
         />
       </div>
       <div className={`${styles.burgerMenu}`}>
@@ -35,10 +37,11 @@ export default function Header({
       </div>
       <i
         onClick={() => setShowMenu(true)}
-        className={`fas fa-bars mr-10 ${styles.mobileHeader}`}></i>
+        className={`fas fa-bars mr-10 ${styles.mobileHeader}`}
+      ></i>
       {showMenu && (
         <>
-          <div onClick={() => setShowMenu(false)} className='calc'></div>
+          <div onClick={() => setShowMenu(false)} className="calc"></div>
           <HeaderMobile
             changeView={changeView}
             setShowMenu={setShowMenu}

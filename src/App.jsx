@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Routes, Route, useLocation } from "react-router-dom"; // Importez useLocation
+import { Routes, Route, useNavigate } from "react-router-dom"; // Importez useNavigate
 import styles from "./App.module.scss";
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
@@ -10,7 +10,7 @@ import Login from "./pages/Login"; // Importez Login
 import { AppContext } from "./context/AppContextInstance";
 
 function App() {
-  const location = useLocation(); // Obtenez l'emplacement actuel
+  const navigate = useNavigate(); // Initialisez useNavigate
   const {
     teams,
     isLoading,
@@ -41,7 +41,10 @@ function App() {
           handleInput={handleInput}
           licensed={licensed}
           login={login}
-          handleTogglePages={handleTogglePages}
+          handleTogglePages={(page) => {
+            handleTogglePages(page);
+            navigate(`/${page}`); // Naviguez vers la route correspondante
+          }}
         />
       )}
       {isLoading ? (
@@ -77,6 +80,7 @@ function App() {
                 user={user}
                 allUsers={allUsers}
                 handleClickDelete={handleClickDelete}
+                licensed={licensed}
               />
             }
           />
@@ -87,6 +91,7 @@ function App() {
                 showUsers={handleTogglePages}
                 teams={teams}
                 toggleLiked={toggleLiked}
+                licensed={licensed}
               />
             }
           />

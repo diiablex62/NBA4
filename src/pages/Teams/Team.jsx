@@ -22,7 +22,7 @@ export default function Team({
         <h2 className={`${styles.presentation}`}>
           {licensed && <span>Welcome {person.name} !</span>}
         </h2>
-        <div className={`${styles.burgerMenu}`}>
+        <div className='d-flex'>
           <button
             onClick={() => {
               if (!licensed) {
@@ -35,12 +35,12 @@ export default function Team({
             {licensed ? "Logout" : "Login"}
           </button>
           <button
-            onClick={() => handleTogglePages("users")}
+            onClick={() => navigate("/users")}
             className='btn btn-primary fz-20 mr-15'>
             Users
           </button>
           <button
-            onClick={() => handleTogglePages("favorites")}
+            onClick={() => navigate("/favorites")}
             className='btn btn-reverse-primary fz-20'>
             Favorites
           </button>
