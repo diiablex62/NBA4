@@ -1,51 +1,55 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../context/AppContextInstance"; 
+import { AppContext } from "../context/AppContextInstance";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { login } = useContext(AppContext); 
+  const { login } = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password) {
+    if (!username || !password) {
       alert("Veuillez remplir tous les champs.");
       return;
     }
-    console.log("Email:", email, "Password:", password);
-    login(); 
-    navigate("/"); 
+    console.log("Username:", username, "Password:", password);
+    login();
+    navigate("/");
   };
 
   return (
     <div
       className='d-flex flex-column align-items-center justify-content-center'
       style={{ minHeight: "100vh" }}>
-      <h2 className='mb-20'>Connexion</h2>
+      <h2 className='mb-20 text-white'>CONNEXION</h2>
       <form
         onSubmit={handleSubmit}
-        className='d-flex flex-column align-items-center'>
-        <div className='mb-20'>
-          <label htmlFor='email'>Email</label>
+        className='d-flex flex-column align-items-center text-white'>
+        <div className='mb-20 d-flex flex-column'>
+          <label htmlFor='username' className='mb-5'>
+            Nom d&apos;utilisateur
+          </label>
           <input
-            type='email'
-            id='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder='Entrez votre email'
+            type='text'
+            id='username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
             required
           />
         </div>
-        <div className='mb-20'>
-          <label htmlFor='password'>Mot de passe</label>
+        <div className='mb-20 d-flex flex-column'>
+          <label htmlFor='password' className='mb-5'>
+            Mot de passe
+          </label>
           <input
             type='password'
             id='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder='Entrez votre mot de passe'
+            placeholder='Mot de passe'
             required
           />
         </div>
