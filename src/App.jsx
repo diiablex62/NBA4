@@ -1,16 +1,17 @@
 import { useContext } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom"; // Importez useNavigate
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import styles from "./App.module.scss";
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
 import Team from "./pages/Teams/Team";
 import Users from "./pages/Users/Users";
 import Favorites from "./pages/Favorites/Favorites";
-import Login from "./pages/Login"; // Importez Login
+import Login from "./pages/Login";
 import { AppContext } from "./context/AppContextInstance";
 
 function App() {
-  const navigate = useNavigate(); // Initialisez useNavigate
+  const location = useLocation(); 
+  const navigate = useNavigate(); 
   const {
     teams,
     isLoading,
@@ -29,10 +30,8 @@ function App() {
     handleClickDelete,
   } = useContext(AppContext);
 
-  const person = { name: "Alex", age: 31 };
-
   return (
-    <div className={`d-flex align-items-center flex-column  ${styles.main}`}>
+    <div className={`d-flex align-items-center flex-column ${styles.main}`}>
       {location.pathname !== "/login" && (
         <Header
           changeView={changeView}
@@ -41,7 +40,7 @@ function App() {
           login={login}
           handleTogglePages={(page) => {
             handleTogglePages(page);
-            navigate(`/${page}`); 
+            navigate(`/${page}`);
           }}
         />
       )}
@@ -53,7 +52,7 @@ function App() {
             path='/'
             element={
               <Team
-                person={person}
+                person={{ name: "Alex", age: 31 }}
                 teams={teams}
                 licensed={licensed}
                 login={login}
@@ -64,10 +63,7 @@ function App() {
               />
             }
           />
-          <Route
-            path='/login'
-            element={<Login />} // Route pour Login
-          />
+          <Route path='/login' element={<Login />} />
           <Route
             path='/users'
             element={
