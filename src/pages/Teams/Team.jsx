@@ -9,7 +9,6 @@ export default function Team({
   login,
   view,
   filter,
-  handleTogglePages,
   toggleLiked,
 }) {
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ export default function Team({
           <button
             onClick={() => {
               if (!licensed) {
-                navigate("/login"); // Redirige vers la page de connexion
+                navigate("/login"); 
               } else {
                 login();
               }

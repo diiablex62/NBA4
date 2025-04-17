@@ -1,7 +1,7 @@
 import styles from "./Favorites.module.scss";
 import { useNavigate } from "react-router-dom";
 
-export default function Favorites({ showUsers, teams, toggleLiked, licensed }) {
+export default function Favorites({ teams, toggleLiked }) {
   const navigate = useNavigate();
 
   return (
@@ -16,7 +16,7 @@ export default function Favorites({ showUsers, teams, toggleLiked, licensed }) {
         className={`d-flex flex-column align-items-center card list p-20 ${styles.list}`}>
         {teams
           .filter((t) => t.liked !== false)
-          .map((t, index) => (
+          .map((t) => (
             <li
               key={t.id}
               className='d-flex flex-row align-items-center jc-between flex-row mb-20 w-90'>

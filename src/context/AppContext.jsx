@@ -4,7 +4,7 @@ import { datas } from "../data";
 
 export const AppProvider = ({ children }) => {
   const [teams, setTeams] = useState(datas);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const [licensed, setLicensed] = useState(false);
   const [view, setView] = useState("all");
   const [filter, setFilter] = useState("");

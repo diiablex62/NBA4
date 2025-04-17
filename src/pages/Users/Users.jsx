@@ -2,13 +2,11 @@ import styles from "./Users.module.scss";
 import { useNavigate } from "react-router-dom";
 
 export default function Users({
-  showUsers,
   handleInputUser,
   handleClick,
   user,
   allUsers,
   handleClickDelete,
-  licensed,
 }) {
   const navigate = useNavigate();
 

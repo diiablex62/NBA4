@@ -17,7 +17,6 @@ function App() {
     licensed,
     view,
     filter,
-    showPage,
     user,
     allUsers,
     handleClick,
@@ -34,7 +33,6 @@ function App() {
 
   return (
     <div className={`d-flex align-items-center flex-column  ${styles.main}`}>
-      {/* Affichez le Header uniquement si l'utilisateur n'est pas sur /login */}
       {location.pathname !== "/login" && (
         <Header
           changeView={changeView}
@@ -43,7 +41,7 @@ function App() {
           login={login}
           handleTogglePages={(page) => {
             handleTogglePages(page);
-            navigate(`/${page}`); // Naviguez vers la route correspondante
+            navigate(`/${page}`); 
           }}
         />
       )}
