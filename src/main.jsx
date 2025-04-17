@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import { AppProvider } from "./context/AppContext";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/Login"; // Importez la page de connexion
+import Login from "./pages/Login"; 
 import "./assets/styles/index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
