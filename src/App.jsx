@@ -5,7 +5,7 @@ import Loading from "./components/Loading/Loading";
 import Team from "./pages/Teams/Team";
 import Users from "./pages/Users/Users";
 import Favorites from "./pages/Favorites/Favorites";
-import { AppContext } from "./context/AppContextInstance"; // Corrigez l'importation
+import { AppContext } from "./context/AppContextInstance"; 
 
 function App() {
   const {
@@ -27,7 +27,7 @@ function App() {
     handleClickDelete,
   } = useContext(AppContext);
 
-  const person = { name: "John", age: 20 };
+  const person = { name: "Alex", age: 31 };
 
   return (
     <div className={`d-flex align-items-center flex-column  ${styles.main}`}>
