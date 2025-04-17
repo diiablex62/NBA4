@@ -5,13 +5,13 @@ import Loading from "./components/Loading/Loading";
 import Team from "./pages/Teams/Team";
 import Users from "./pages/Users/Users";
 import Favorites from "./pages/Favorites/Favorites";
-import { AppContext } from "./context/AppContext";
+import { AppContext } from "./context/AppContextInstance"; // Corrigez l'importation
 
 function App() {
   const {
     teams,
     isLoading,
-    licensed, // Utilisation de licensed
+    licensed,
     view,
     filter,
     showPage,
@@ -45,7 +45,7 @@ function App() {
           <Header
             changeView={changeView}
             handleInput={handleInput}
-            licensed={licensed} // Passer licensed au Header
+            licensed={licensed}
             login={login}
             handleTogglePages={handleTogglePages}
           />
@@ -55,7 +55,7 @@ function App() {
             <Team
               person={person}
               teams={teams}
-              licensed={licensed} // Passer licensed au Team
+              licensed={licensed}
               login={login}
               view={view}
               filter={filter}

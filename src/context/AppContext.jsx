@@ -1,7 +1,6 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
+import { AppContext } from "./AppContextInstance";
 import { datas } from "../data";
-
-export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [teams, setTeams] = useState(datas);
